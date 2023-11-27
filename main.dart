@@ -1,23 +1,24 @@
 void main() {
-  var firstList = [1, 2, 3, 5];
-  print(firstList);
-  print(firstList[0]);
-  firstList[0] = 42;
-  var secondList = [];
-  print(secondList);
-  secondList.add(1);
-  print(secondList);
-  secondList.addAll([
-    1,
-    2,
-    3,
-  ]);
-  print(secondList);
-  var thridList = [1, 2, 3, 4, 5];
-  thridList.insert(0, 232);
-  print(thridList);
-  thridList.insertAll(3, [11, 31, 31]);
-  print(thridList);
-  thridList.removeAt(5);
-  print(thridList);
+  int target = 47;
+
+  int min = 1;
+  int max = 500;
+
+  while (min < max) {
+    int guess = (min + max) ~/ 2;
+
+    if (target == guess) {
+      print("you are correct");
+      print(guess);
+      break;
+    } else if (target > guess) {
+      print("your number is lessthan the target");
+      print(guess);
+      min = guess;
+    } else {
+      print("your guess is greater than the target");
+      print(guess);
+      max = guess;
+    }
+  }
 }
