@@ -1,35 +1,57 @@
-class laptop {
-  String? name;
-  int? ram;
-  int? id;
-  laptop(this.id, this.name, this.ram) {
-    print("name =$name");
-    print("ram =$ram");
-    print("id =$id ");
-  }
-}
+import 'dart:io';
 
-class Animal {
-  int? id;
-  String? name;
-  String? color;
-  Animal(this.color, this.id, this.name) {
-    print("name = $name");
-    print("color =$color");
-    print("id =$id");
-  }
-}
+class Calculator {
+  double num1 = 0;
+  double num2 = 0;
 
-class Cat extends Animal {
-  String? sound;
-  Cat(super.color, super.id, super.name, this.sound) {
-    print("sound $sound");
+  Calculator(this.num1, this.num2) {}
+
+  double Addtion() {
+    double sum = num1 + num2;
+    return sum;
+  }
+
+  double Subtraction() {
+    double sub = num1 - num2;
+    return sub;
+  }
+
+  double Multiplication() {
+    double multi = num1 * num2;
+    return multi;
+  }
+
+  double Division() {
+    try {
+      double result = num1 / num2;
+      return result;
+    } catch (e) {
+      print("You can not divid by zero: $e");
+      return double.nan;
+    }
   }
 }
 
 void main() {
-  var hp = laptop(1, "hp ", 16);
-  var lenovo = laptop(2, "lenovo ", 8);
-  var toshiba = laptop(3, "toshiba", 4);
-  var kity = Cat("white", 1, "kity", "mwwio");
+  var operation = Calculator(1, 0);
+  stdout.write('Enter the calculation you want to perform : ');
+
+  String? userInput = stdin.readLineSync();
+
+  switch (userInput) {
+    case '+':
+      print("the sum of the two numbers is = ${operation.Addtion()}");
+      break;
+    case '-':
+      print(
+          "the difference of the two numbers is = ${operation.Subtraction()}");
+      break;
+    case "*":
+      print(
+          "the product of the two numbers is = ${operation.Multiplication()}");
+      break;
+    case "/":
+      print("the divided of the two numbers is = ${operation.Division()}");
+      break;
+  }
 }

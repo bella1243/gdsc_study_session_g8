@@ -32,4 +32,6 @@ void main() {
   var lenovo = laptop(2, "lenovo ", 8);
   var toshiba = laptop(3, "toshiba", 4);
   var kity = Cat("white", 1, "kity", "mwwio");
+
+  print("the laptops are $kity $lenovo $toshiba $hp");
 }
