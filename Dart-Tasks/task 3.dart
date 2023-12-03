@@ -6,33 +6,42 @@ class Calculator {
 
   Calculator(this.num1, this.num2) {}
 
-  double Addtion() {
+  Future<double> Addtion() async {
+    await Future.delayed(Duration(seconds: 5));
     double sum = num1 + num2;
     return sum;
   }
 
-  double Subtraction() {
+  Future<double> Subtraction() async {
+    await Future.delayed(Duration(seconds: 5));
     double sub = num1 - num2;
     return sub;
   }
 
-  double Multiplication() {
+  Future<double> Multiplication() async {
+    await Future.delayed(Duration(seconds: 5));
     double multi = num1 * num2;
     return multi;
   }
 
-  double Division() {
+  Future<double> Division() async {
     try {
+      await Future.delayed(Duration(seconds: 5));
       double result = num1 / num2;
       return result;
     } catch (e) {
-      print("You can not divid by zero: $e");
+      // ignore: deprecated_member_use
+      if (e is IntegerDivisionByZeroException) {
+        print("Error: You have divided by zero!");
+      } else {
+        print("An exception occurred: $e");
+      }
       return double.nan;
     }
   }
 }
 
-void main() {
+void main() async {
   stdout.write("ente the first number : ");
 
   double? number1 = double.parse(stdin.readLineSync()!);
@@ -49,18 +58,19 @@ void main() {
 
   switch (userInput) {
     case '+':
-      print("the sum of the two numbers is = ${operation.Addtion()}");
+      print("the sum of the two numbers is = ${await operation.Addtion()}");
       break;
     case '-':
       print(
-          "the difference of the two numbers is = ${operation.Subtraction()}");
+          "the difference of the two numbers is = ${await operation.Subtraction()}");
       break;
     case "*":
       print(
-          "the product of the two numbers is = ${operation.Multiplication()}");
+          "the product of the two numbers is = ${await operation.Multiplication()}");
       break;
     case "/":
-      print("the divided of the two numbers is = ${operation.Division()}");
+      print(
+          "the divided of the two numbers is = ${await operation.Division()}");
       break;
   }
 }
