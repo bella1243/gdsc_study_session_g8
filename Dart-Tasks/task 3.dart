@@ -30,7 +30,6 @@ class Calculator {
       double result = num1 / num2;
       return result;
     } catch (e) {
-      // ignore: deprecated_member_use
       if (e is IntegerDivisionByZeroException) {
         print("Error: You have divided by zero!");
       } else {
