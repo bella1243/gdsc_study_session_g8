@@ -42,11 +42,11 @@ class Calculator {
 }
 
 void main() async {
-  stdout.write("ente the first number : ");
+  stdout.write("Enter the first number : ");
 
   double? number1 = double.parse(stdin.readLineSync()!);
 
-  stdout.write("enter the second number : ");
+  stdout.write("Enter the second number : ");
 
   double? number2 = double.parse(stdin.readLineSync()!);
 
@@ -58,19 +58,19 @@ void main() async {
 
   switch (userInput) {
     case '+':
-      print("the sum of the two numbers is = ${await operation.Addtion()}");
+      print("The sum of the two numbers is = ${await operation.Addtion()}");
       break;
     case '-':
       print(
-          "the difference of the two numbers is = ${await operation.Subtraction()}");
+          "The difference of the two numbers is = ${await operation.Subtraction()}");
       break;
     case "*":
       print(
-          "the product of the two numbers is = ${await operation.Multiplication()}");
+          "The product of the two numbers is = ${await operation.Multiplication()}");
       break;
     case "/":
       print(
-          "the divided of the two numbers is = ${await operation.Division()}");
+          "The divided of the two numbers is = ${await operation.Division()}");
       break;
   }
 }
