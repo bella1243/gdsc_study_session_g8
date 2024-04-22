@@ -24,6 +24,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Image '),
+        leadingWidth: 21,
       ),
       body: Center(
         child: Image.asset(
